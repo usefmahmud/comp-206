@@ -2,17 +2,23 @@
   "name": "shahd-ts",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "dev": "nodemon index.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usefmahmud/comp-206.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/usefmahmud/comp-206/issues"
+  },
+  "homepage": "https://github.com/usefmahmud/comp-206#readme",
   "description": "",
   "dependencies": {
-    "@types/express": "^5.0.2",
-    "@types/node": "^22.15.21",
     "express": "^5.1.0"
   },
   "devDependencies": {

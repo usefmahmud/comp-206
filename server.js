@@ -17,6 +17,8 @@ app.use("/todos", auth, todosRouter);
 
 app.use(errorHandler);
 
-app.listen(8000, () => {
+const PORT = process.env.PORT || 8000;
+
+app.listen(PORT, () => {
   console.log("server is running on https://localhost:8000");
 });

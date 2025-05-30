@@ -7,9 +7,12 @@ import { logger } from "./middlewares/logger.middleware.js";
 import { errorHandler } from "./middlewares/errorHandler.middleware.js";
 import { auth } from "./middlewares/auth.middleware.js";
 
+import cors from "cors";
+
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 app.use(logger);
 
 app.use("/users", usersRouter);

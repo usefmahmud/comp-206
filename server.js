@@ -35,8 +35,13 @@ app.use("/todos", auth, todosRouter);
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 3000;
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`server is running on http://localhost:${PORT}`);
+  });
+}
 
-app.listen(PORT, () => {
-  console.log("server is running on https://localhost:3000");
-});
+// Export the Express app for Vercel
+export default app;

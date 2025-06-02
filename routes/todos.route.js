@@ -8,7 +8,7 @@ const router = Router();
 router.post("/", (req, res) => {
   const id = getRandomId();
   const content = req.body.content;
-  const userId = req.user.id;
+  const userId = req.session.userId;
 
   const todo = {
     id,
@@ -25,7 +25,7 @@ router.post("/", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  const userId = req.user.id;
+  const userId = req.session.userId;
   const userTodos = todos.filter((todo) => todo.userId === userId);
   res.json({
     todos: userTodos,
@@ -34,7 +34,7 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   const todoId = req.params.id;
-  const userId = req.user.id;
+  const userId = req.session.userId;
   const foundTodo = todos.find(
     (todo) => todo.id === +todoId && todo.userId === userId
   ); // todo - undefined
@@ -52,7 +52,7 @@ router.get("/:id", (req, res) => {
 
 router.delete("/:id", (req, res) => {
   const todoId = req.params.id;
-  const userId = req.user.id;
+  const userId = req.session.userId;
   const foundTodo = todos.find(
     (todo) => todo.id === +todoId && todo.userId === userId
   );
